@@ -28,5 +28,6 @@ h1{
 }
 
 img{
-    border:5px solid purple
+    border:5px solid purple;
+    border-style:groove;
 }
