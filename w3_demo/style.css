@@ -1,0 +1,33 @@
+body {
+
+    background-color:#eeeff0; /* hexadecimal */
+    background-image:url(images/images/background.png);
+    margin:0;
+    font-family:arial, Verdana, sans-serif
+    font-size:18px;
+}
+
+#wrapper {
+
+    width:960px;
+    padding:10px;
+    background-color:white;
+    margin:auto;
+    box-shadow:0px 0px 8px black; /*offset-x, offset-y, blur-radius, color*/
+}
+
+#main-nav{
+
+    width:300px;
+    height:40px;
+    margin:20px;
+    border:1px solid red; /*add borderes to "see" where stuff is */
+
+    /* TOTAL WIDTH:342px [300width + 20marginLeft +20marginRight + 1borderLeft + 1borderRight] */
+}
+
+.section{
+
+    margin:30px 0; /*top+bottom, left+right*/
+    border-bottom:2px solid #333333;
+}
