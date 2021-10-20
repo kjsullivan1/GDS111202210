@@ -1,0 +1,46 @@
+#main-header{
+    border:2px solid red;
+    margin:auto;
+    width:300px;
+    color:red;
+    
+}
+#nav{
+    border:2px solid blue;
+   
+}
+.btn{
+    float:left;
+    width:100px;
+    height:40px;
+    background-color:black;
+    color:red;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:bold;
+    text-align:center;
+    line-height:40px;
+    margin-right:20px;
+    
+}
+.btn:hover{
+    background-color:red;
+    color:black;
+}
+body{
+    background-color:gray;
+}
+#bio{
+    margin-top:10px;
+    border:solid green;
+    margin-right:800px;
+    height:500px;
+    position:absolute;
+}
+#bio_heading{
+    margin-top:100px;
+    border:2px solid red;
+    font-size:65px;
+    position:relative;
+    
+}
