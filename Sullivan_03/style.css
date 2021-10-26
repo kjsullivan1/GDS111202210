@@ -7,7 +7,8 @@
 }
 #nav{
     border:2px solid blue;
-   
+    position:absolute;
+    
 }
 .btn{
     float:left;
@@ -20,7 +21,7 @@
     font-weight:bold;
     text-align:center;
     line-height:40px;
-    margin-right:20px;
+    margin-right:10px;
     
 }
 .btn:hover{
@@ -34,13 +35,16 @@ body{
     margin-top:10px;
     border:solid green;
     margin-right:800px;
-    height:500px;
+    height:390px;
     position:absolute;
+    background-color:crimson;
+    font-size:30px;
 }
 #bio_heading{
     margin-top:100px;
     border:2px solid red;
     font-size:65px;
     position:relative;
+    
     
 }
