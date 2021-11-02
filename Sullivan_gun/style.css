@@ -1,0 +1,23 @@
+#wrapper{
+
+    width:980px;
+    margin:auto;
+    
+}
+
+div{
+    border:1px solid red;
+}
+
+#header{
+    text-align:center;
+}
+
+#gamebtn{
+
+    width:500px;
+    margin:auto;
+    text-align:center;
+    
+}
+ 
