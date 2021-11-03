@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Operators Demo</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script type="text/javascript" src="gun.js"></script>
+</head>
+<body onload="updatescreen();">
+
+    <div id="wrapper">
+
+        <header>
+           
+            <h1 id="gametitle">Rabbit Season | Gun Program</h1>
+            <img src="images/galil.jpg" alt="best gun" id="galil"/>
+           
+        </header>
+
+       
+        <div id="target">
+            <img src="images/Big_Show_Chungus.png" alt="chungus" id="bigchungus"/>
+        </div><!--/ #target-->
+
+        
+        <nav>
+            <!--left info box-->
+            <section id="left">
+
+                <!--ammo cache-->
+                <p id="label">Total ammo</p>
+                <div id="total-ammo" class="ammo"></div>
+
+                <!--current ammo-->
+                <p id="label">Current ammo</p>
+                <div id="current-ammo" class="ammo"></div>
+
+
+            </section><!--/ #left-->
+
+            <!--right info box-->
+            <div id="right">
+
+                <form>
+
+                    <p id="shootbtn" class="btn-right"><!--shoot button-->
+                        <input type="button" value="SHOOT" class="shoot" onclick="shoot();"/>
+                    </p>
+
+                    <p id="reloadbtn" class="btn-right"><!--reload button-->
+                        <input type="button" value="RELOAD" class="reload" onclick="reload();"/>
+                    </p>
+
+                </form>
+
+            </div><!--/ #right-->
+
+        </nav><!--/nav-->
+
+        <footer>
+            <p class="copy">&copy; 2021 | HTML & Javascript | KSullivan</p>
+        </footer>
+
+    </div><!--/ #wrapper-->
+
+  
+
+    <audio id="gun" src="sounds/The Hand noise.mp3">
+    
+        <p>Your browser sucks and doesn't know HTML5.</p>
+
+    </audio>
+    
+    
+    <audio id="reload" src="sounds/Giorno Healing _ Creating life sound effect.mp3">
+    
+        <p>Your browser sucks and doesn't know HTML5.</p>
+
+    </audio>
+    
+</body>
+</html>
