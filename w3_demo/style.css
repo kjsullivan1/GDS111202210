@@ -3,7 +3,7 @@ body {
     background-color:#eeeff0; /* hexadecimal */
     background-image:url(images/images/background.png);
     margin:0;
-    font-family:arial, Verdana, sans-serif
+    font-family:arial, Verdana, sans-serif;
     font-size:18px;
 }
 
