@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <meta name="author" content="Jay Aguiar">
+    <link rel="stylesheet" href="rps.css">
+</head>
+<body>
+    <div id="container">
+
+        <h2>Player</h2>
+        <div class="player">
+
+            <!--p = player-->
+            <img src="images/British.png" id="rock_p" class="pic" onclick="play(0);"/>
+            <img src="images/France.png" id="paper_p" class="pic" onclick="play(1);"/>
+            <img src="images/German.png" id="scissors_p" class="pic" onclick="play(2);"/>
+
+        </div><!--/.player-->
+
+        <h2>Computer</h2>
+        <div class="computer">
+
+            <!-- c = computer-->
+            <img src="images/British.png" id="rock_c" class="pic"/>
+            <img src="images/France.png" id="paper_c"  class="pic"/>
+            <img src="images/German.png" id="scissors_c"  class="pic"/>
+
+        </div><!--/.computer-->
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <nav>
+            <button id="rock">The Bri'ish</button>
+            <button id="paper">The French</button>
+            <button id="scissors">The Germans</button>
+        </nav>
+       <div id="result">
+
+        <p>PLAYER CHOSE: <span id="pChoice"></span></p>
+        <p>COMPUTER CHOSE: <span id="cChoice"></span></p>
+        <br>
+        <p>GAME OUTCOME: <span id="results"></span></p>
+
+       </div><!--/#results-->
+    </div>
+    <script src="rps.js"></script>
+</body>
+</html>
