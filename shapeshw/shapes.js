@@ -33,6 +33,7 @@ shapes.onload = function(){
     ctx.lineTo(452,440)
     ctx.closePath()
     ctx.fill()
+    ctx.stroke()
 
     //PENTAGRAM
     ctx.fillStyle = "#ff00ff"
