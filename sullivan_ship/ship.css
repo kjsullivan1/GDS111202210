@@ -1,0 +1,44 @@
+#container{
+   background-color:goldenrod;
+   width:900px;
+   height:760px;
+    margin:auto;
+    border:1px solid black;
+    padding:2px;
+}
+
+#game{
+    width:800px;
+    height:600px;
+    margin:auto;
+    padding:2px;
+}
+
+body{
+    margin:auto;
+}
+
+#header{
+    border:1px solid red;
+    padding:2px;
+    text-align:center;
+    font-family:bakbak one;
+
+}
+
+#footer{
+    border:1px solid green;
+    padding:5px;
+    margin-top:10px;
+    font-family:bakbak one; 
+    text-align:center;
+}
+
+body{
+    background-image:url(images/jvd.png);
+    width:fit-content;
+    height:auto;
+    background-repeat:no-repeat;
+    
+    
+}
