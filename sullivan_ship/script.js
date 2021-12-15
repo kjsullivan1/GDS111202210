@@ -53,7 +53,7 @@ function randomRange(high, low){
 
 //Class for the Asteroids
 function Asteroid(){
-    this.radius = randomRange(40,10);
+    this.radius = randomRange(33,10);
     this.x = randomRange(c.width - this.radius, 0 + this.radius) + c.width
     this.y = randomRange(c.height - this.radius, 0 + this.radius) //-c.height
     this.vx = randomRange(-8, -15)
@@ -74,7 +74,7 @@ function Asteroid(){
 }
 
 function Powerup(){
-    this.radius = randomRange(30,10);
+    this.radius = randomRange(30,29);
     this.x = randomRange(c.width - this.radius, 0 + this.radius) + c.width
     this.y = randomRange(c.height - this.radius, 0 + this.radius) //-c.height
     this.vx = randomRange(-8, -15)
@@ -425,15 +425,20 @@ function scoreTimer(){
         //console.log(score);
         if(score % 2 == 0){
             numAsteroids += 10;
-            numPowerUp += 1 
+           
             console.log(numAsteroids);
             
+        }
+        if(score % 10 == 0){
+            numPowerUp += 1
+            console.log(numPowerUp)
         }
 
         setTimeout(scoreTimer,1000)
     }
 }
 //scoreTimer()
+
 
 function TimeInterval(){
 
