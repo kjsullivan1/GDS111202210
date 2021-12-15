@@ -241,15 +241,6 @@ function keyPressDown(e){
                 currentState = 0
             }
 
-            if(currentState == 2) {
-                console.log("current state is 2")
-                score = 0
-                numPowerUp = 1
-                powerUp = []
-                gameStart()
-
-                currentState = 0
-            }
 
             else{
 
@@ -283,7 +274,7 @@ function keyPressUp(e){
 gameStates[0] = function(){
     context.save()
     context.drawImage(gStart,0,0,800,600)
-    context.font = "30px Arial"
+    context.font = "30px bakbak one"
     context.fillStyle = "white"
     context.textAlign = "center"
     context.fillText("The World Avoidance", c.width/2, c.height/2 - 30)
@@ -296,7 +287,7 @@ gameStates[0] = function(){
 gameStates[1] = function(){//GAMEPLAY STATE
     context.save();
     
-    context.font = "15px Arial"
+    context.font = "15px bakbak one"
     context.fillStyle = "white"
     context.fillText("Score: " + score.toString(), c.width - 150, 30);
     context.restore();
@@ -398,12 +389,13 @@ gameStates[1] = function(){//GAMEPLAY STATE
 gameStates[2] = function() {//GAME OVER STATE
     context.save()
     context.drawImage(gOver,0,0,800,600)
-    context.font = "30px Arial"
-    context.fillStyle = "gold"
+    context.font = "30px bakbak one"
+    context.fillStyle = "white"
     context.textAlign = "center"
-    context.fillText("Dio caught you in his time stop!: " + score.toString(), c.width/2, c.height/2 - 30)
+    context.fillText("Dio caught you in his time stop! Your score was: " + score.toString(), c.width/2, c.height/2 - 30)
     context.font = "15px Arial"
     context.fillText("Press ENTER to Play Again!", c.width/2, c.height/2 + 20)
+    context.restore()
     context.restore()
 
 }
