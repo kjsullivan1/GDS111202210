@@ -6,6 +6,10 @@ var asteroids = new Array();
 var numAsteroids = 10
 var gameOver = true
 var score = 0
+var invincible = false
+var powerUp = new Array()
+var numPowerUp = 1
+
 
 
 
@@ -22,6 +26,12 @@ shipSprite.onload = function (){
 var asteroidSprite = new Image()
 asteroidSprite.src = "images/theworld.png"
 asteroidSprite.onload = function(){
+
+}
+
+var powerSprite = new Image()
+powerSprite.src = "images/star.png"
+powerSprite.onload = function (){
 
 }
 
@@ -61,6 +71,38 @@ function Asteroid(){
         context.fill();
         context.restore();
     }
+}
+
+function Powerup(){
+    this.radius = randomRange(30,10);
+    this.x = randomRange(c.width - this.radius, 0 + this.radius) + c.width
+    this.y = randomRange(c.height - this.radius, 0 + this.radius) //-c.height
+    this.vx = randomRange(-8, -15)
+    this.vy = randomRange(15,8)
+    this.color = "purple"
+
+    this.draw = function(){
+      
+        context.save();
+        context.beginPath();
+        context.fillStyle = this.color;
+        /*context.arc(this.x,this.y,this.radius,0,2*Math.PI,true);*/
+        context.drawImage(powerSprite, this.x - this.radius, this.y - this.radius, this.radius*2, this.radius*2)
+        context.closePath();
+        context.fill();
+        context.restore();
+    }
+}
+
+function gameStart(){
+    //for loop to create the intances of the asteroids
+    for(var i = 0; i<numPowerUp; i++){
+        powerUp[i] = new Powerup(); //creates loop
+        
+        //create the instance of the ship for the game
+        ship = new PlayerShip()
+    }
+
 }
 
 
@@ -199,6 +241,16 @@ function keyPressDown(e){
                 currentState = 0
             }
 
+            if(currentState == 2) {
+                console.log("current state is 2")
+                score = 0
+                numPowerUp = 1
+                powerUp = []
+                gameStart()
+
+                currentState = 0
+            }
+
             else{
 
                 gameStart()
@@ -275,7 +327,7 @@ gameStates[1] = function(){//GAMEPLAY STATE
         var dist = Math.sqrt((dX*dX)+(dY*dY));
         
         //checks for collision with asteroid and ends game
-        if(detectCollision(dist, (ship.h/2 + asteroids[i].radius))){
+        if(detectCollision(dist, (ship.h/2 + asteroids[i].radius)) && invincible == false){
            // console.log("We collided with Asteroid " + i);
             gameOver = true
             currentState = 2 //this replaces removeEventListener need
@@ -301,6 +353,44 @@ gameStates[1] = function(){//GAMEPLAY STATE
     }
     while(asteroids.length < numAsteroids){
         asteroids.push(new Asteroid());
+    }
+
+    for(var i = 0; i<powerUp.length; i++){
+        //using the distance formula to find distance between ship and asteroid
+        var dX = ship.x - powerUp[i].x;
+        var dY = ship.y - powerUp[i].y;
+        var dist = Math.sqrt((dX*dX)+(dY*dY));
+        
+        //checks for collision with asteroid and ends game
+        if(detectCollision(dist, (ship.h/2 + powerUp[i].radius)) && invincible == false){
+           // console.log("We collided with Asteroid " + i);
+            gameOver = false
+            invincible = true
+            if(invincible == true){
+                
+                setTimeout(TimeInterval, 5000)
+            }
+            
+        }
+
+        //checks to see if asteroid ios off screen
+        if(powerUp[i].y > c.height + powerUp[i].radius){
+            //reset steroids position off screen 
+            powerUp[i].y = randomRange(c.height - powerUp[i].radius, 0 + powerUp[i].radius)-c.height;
+            powerUp[i].x = randomRange(c.width - [i].radius, 0 + powerUp[i].radius);
+        }
+        if(gameOver == false){
+            powerUp[i].x += powerUp[i].vx;
+        }
+        powerUp[i].draw();
+    }
+
+    ship.draw();
+    if(gameOver == false){
+      ship.move();  
+    }
+    while(powerUp.length < numPowerUp){
+        powerUp.push(new Powerup());
     }
 
 }
@@ -335,13 +425,21 @@ function scoreTimer(){
         //console.log(score);
         if(score % 2 == 0){
             numAsteroids += 10;
+            numPowerUp += 1 
             console.log(numAsteroids);
+            
         }
 
-        setTimeout(scoreTimer,1000);
+        setTimeout(scoreTimer,1000)
     }
 }
 //scoreTimer()
+
+function TimeInterval(){
+
+    invincible = false
+    clearTimeout()
+}
 
 function detectCollision(distance, calcDistance){
     return distance < calcDistance;
