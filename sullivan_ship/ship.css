@@ -3,7 +3,7 @@
    width:900px;
    height:760px;
     margin:auto;
-    border:1px solid black;
+    
     padding:2px;
 }
 
@@ -19,7 +19,7 @@ body{
 }
 
 #header{
-    border:1px solid red;
+   
     padding:2px;
     text-align:center;
     font-family:bakbak one;
@@ -27,7 +27,7 @@ body{
 }
 
 #footer{
-    border:1px solid green;
+    
     padding:5px;
     margin-top:10px;
     font-family:bakbak one; 
@@ -41,4 +41,8 @@ body{
     background-repeat:no-repeat;
     
     
+}
+
+#canvas{
+    border: 2px solid black;
 }

@@ -7,6 +7,8 @@ var numAsteroids = 10
 var gameOver = true
 var score = 0
 
+
+
 var gameStates= []
 var currentState= 0
 var ship
@@ -24,8 +26,14 @@ asteroidSprite.onload = function(){
 }
 
 var gStart = new Image()
-gStart.src = "images/jojovdio.png"
+gStart.src = "images/title_screen.png"
 gStart.onload = function(){
+
+}
+
+var gOver = new Image()
+gOver.src = "images/game_over.png"
+gOver.onload = function() {
 
 }
 
@@ -54,6 +62,10 @@ function Asteroid(){
         context.restore();
     }
 }
+
+
+
+
 
 function gameStart(){
     //for loop to create the intances of the asteroids
@@ -173,7 +185,6 @@ function keyPressDown(e){
     if(gameOver == true) {
         console.log("gameOver === true")
       
-
         if(e.keyCode === 13){//enter key!
             console.log("recog enter key")
             console.log("current state", currentState)
@@ -192,6 +203,7 @@ function keyPressDown(e){
 
                 gameStart()
                 gameOver = false
+               
                 currentState = 1
                 setTimeout(scoreTimer, 1000)
             }
@@ -218,14 +230,15 @@ function keyPressUp(e){
 
 gameStates[0] = function(){
     context.save()
-    context.drawImage(gStart,-30,-30,900,700)
+    context.drawImage(gStart,0,0,800,600)
     context.font = "30px Arial"
     context.fillStyle = "white"
     context.textAlign = "center"
-    context.fillText("Asteroid Avoidance", c.width/2, c.height/2 - 30)
+    context.fillText("The World Avoidance", c.width/2, c.height/2 - 30)
     context.font = "15px Arial"
     context.fillText("Press ENTER to Start!", c.width/2, c.height/2 + 20)
     context.restore()
+    
 }
 
 gameStates[1] = function(){//GAMEPLAY STATE
@@ -294,10 +307,11 @@ gameStates[1] = function(){//GAMEPLAY STATE
 
 gameStates[2] = function() {//GAME OVER STATE
     context.save()
+    context.drawImage(gOver,0,0,800,600)
     context.font = "30px Arial"
-    context.fillStyle = "white"
+    context.fillStyle = "gold"
     context.textAlign = "center"
-    context.fillText("GAME OVER your score was: " + score.toString(), c.width/2, c.height/2 - 30)
+    context.fillText("Dio caught you in his time stop!: " + score.toString(), c.width/2, c.height/2 - 30)
     context.font = "15px Arial"
     context.fillText("Press ENTER to Play Again!", c.width/2, c.height/2 + 20)
     context.restore()
