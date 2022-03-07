@@ -59,14 +59,14 @@ levelItems.add([caveBack.grid, ground, plat, cave.grid]);
 
 //background
 var bg = new GameObject({x:level.x,y:level.y, width:canvas.width*4, height:canvas.height})
-bg.img.src=`images/bgfull.png`
+bg.img.src=`images/Sullivan_environment-1.png`
 
 var clouds = new GameObject({x:level.x,y:level.y})
-clouds.img.src=`images/mrt.jpg`
+clouds.img.src=``
 
 //farbackground
 var rbg = new GameObject({x:level.x, y:level.y, width:1024, height:512})
-rbg.img.src=`images/hills.png`
+rbg.img.src=`images/Sullivan_background-1.png`
 
 /*------------------vvBULLET STUFFvv----------------------*/
 

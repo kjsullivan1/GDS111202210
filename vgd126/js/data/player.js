@@ -19,22 +19,27 @@ Properties:
 
 var playerData ={
 	info:{
-		src:`images/bark.png`
+		src:`images/character_spreadsheet.png`
 	},
 	states:{
 		//The idle animation 
     	idle:
 		{
-			fps:9,
+			fps:100,
 			cycle:true,
 			frames:
 			[
-				{width:128, height:128, startX:0, startY:0},
-				{width:128, height:128, startX:128, startY:0},
-				{width:128, height:128, startX:256, startY:0},
-				{width:128, height:128, startX:384, startY:0},
-				{width:128, height:128, startX:512, startY:0},
-				{width:128, height:128, startX:640, startY:0}
+				{width:76, height:90, startX:2660, startY:0},
+				{width:90, height:90, startX:3330, startY:0},
+				{width:90, height:90, startX:2444, startY:0},
+				{width:90, height:90, startX:2482, startY:0},
+				{width:90, height:90, startX:2520, startY:0},
+				{width:90, height:90, startX:2558, startY:0},
+				{width:90, height:90, startX:2596, startY:0},
+				{width:90, height:90, startX:2634, startY:0},
+				{width:90, height:90, startX:2672, startY:0},
+				{width:90, height:90, startX:2710, startY:0},
+				{width:90, height:90, startX:2748, startY:0},
 
 				
 			]
