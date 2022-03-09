@@ -15,9 +15,12 @@ var sky = new GameObject({width:canvas.width, height:canvas.height, color:"cyan"
 
 //The ground
 var ground = new GameObject({width:canvas.width*10, height:64,y:canvas.height-32, color:"green"})
+ground.img.src=`images/ground.png`
+
 
 //A platform
 var plat = new GameObject({width:256, height:64,y:canvas.height-200, color:"green"})
+plat.img.src='images/platform.png'
 
 //A level object when it is moved other objects move with it.
 var level = new GameObject({x:0,y:0});
@@ -62,7 +65,7 @@ var bg = new GameObject({x:level.x,y:level.y, width:canvas.width*4, height:canva
 bg.img.src=`images/Sullivan_environment-1.png`
 
 var clouds = new GameObject({x:level.x,y:level.y})
-clouds.img.src=``
+clouds.img.src=`images/ground.png`
 
 //farbackground
 var rbg = new GameObject({x:level.x, y:level.y, width:1024, height:512})
@@ -73,16 +76,15 @@ rbg.img.src=`images/Sullivan_background-1.png`
 var bullets=[]
 var canShoot=true;
 var shotTimer = 0;
-var shotDelay = 21;
+var shotDelay = 25;
 var currentBullet = 0;
 
 for(let i=0; i<100; i++)
 {
-	bullets[i] = new GameObject({width:64, height:64})
-	//bullets[i].img.src="images/mrt.jpg"
-	bullets[i].makeSprite(playerData)
+	bullets[i] = new GameObject({width:23, height:20})
+	bullets[i].img.src="images/projectile.png"
 	bullets[i].y=-10000
-	bullets[i].changeState(`walk`)
+	
 }
 
 //console.log(bullets)
@@ -160,7 +162,7 @@ gameStates[`level1`] = function()
 
 			bullets[currentBullet].vx = 5*wiz.dir;
 			bullets[currentBullet].world = level;
-			bullets[currentBullet].x = wiz.x-level.x + (wiz.dir * 96) ;
+			bullets[currentBullet].x = wiz.x-level.x + (wiz.dir * 50) ;
 			bullets[currentBullet].y = wiz.y + 20;
 			bullets[currentBullet].dir = wiz.dir;
 			
@@ -270,9 +272,9 @@ gameStates[`level1`] = function()
 	
 	for(let i=0; i<bullets.length; i++)
 	{
-		if(bullets[i].overlap(stage)) bullets[i].vy+=1;
+		//if(bullets[i].overlap(stage)) bullets[i].vy+=1;
 		bullets[i].move()
-		bullets[i].play(function(){return}).drawSprite()
+		bullets[i].drawStaticImage()
 		//bullets[i].angle+=10
 		while(g1.collide(bullets[i].bottom) && bullets[i].vy>=0)
 		{
@@ -287,6 +289,8 @@ gameStates[`level1`] = function()
 
 
 	front.play().render(`drawSprite`);
+	plat.drawStaticImage();
+	
 
 
 }
