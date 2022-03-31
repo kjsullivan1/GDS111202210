@@ -1,30 +1,39 @@
-//Declare my variables
+// JavaScript Document
 
 var canvas;
 var context;
 var timer;
-//1000 ms or 1 second / FPS
 var interval = 1000/60;
 var ball;
 
-	//Set Up the Canvas
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");	
-	
-	//Instantiate the Player
 	ball = new Ball();
 	
-	//Set the Animation Timer
+	//------Declare the Player's speed on the x and y axis------
+	ball.vx = 5;
+	ball.vy = 0;
+	//----------------------------------------------------
+	
 	timer = setInterval(animate, interval);
+
 
 function animate()
 {
-	//Erase the Screen
 	context.clearRect(0,0,canvas.width, canvas.height);	
 	
-	//Move the Player
-	ball.x += 2;
+	//----Movement Using the Player's move() function----
+	ball.move();
+	//---------------------------------------------------
 	
-	//Update the Screen
+	//--------------Bounce off Right----------------------
+	if(ball.x > canvas.width - ball.width/2)
+	{
+		ball.vx = -ball.vx
+		ball.vx = 1 + ball.vx
+	}
+
+	//---------------------------------------------------
+	
 	ball.draw();
 }
