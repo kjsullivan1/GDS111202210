@@ -16,6 +16,7 @@ function Ball()
 	
 	//player's color
 	this.color = "#ff0000";
+	this.force  = 1
 	
 	this.force = 1
 	//This draws the player to the screen

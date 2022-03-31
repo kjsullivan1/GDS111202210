@@ -11,8 +11,8 @@ var ball;
 	ball = new Ball();
 	
 	//------Declare the Player's speed on the x and y axis------
-	ball.vx = 5;
-	ball.vy = 5;
+	ball.vx = 3;
+	ball.vy = 3;
 	//----------------------------------------------------
 	
 	timer = setInterval(animate, interval);
@@ -29,23 +29,35 @@ function animate()
 	//--------------Bounce off Right----------------------
 	if(ball.x > canvas.width - ball.width/2)
 	{
+		ball.x = canvas.width - ball.width/2
 		ball.vx = -ball.vx
+		ball.vx = ball.vx * Math.floor(Math.random() * 5)-3;
 		
 	}
 
-	else if(ball.x < 0 + ball.width/2)
+ if(ball.x < 0 + ball.width/2)
 	{
+		ball.x = 0 + ball.width/2
 		ball.vx = -ball.vx
-		
+		ball.vx = ball.vx * Math.floor(Math.random() * 5)+2;
+	
 	}
 	
-	else if (ball.y > canvas.height - ball.height/2)
+ if (ball.y > canvas.height - ball.height/2)
 	{
+		ball.y = canvas.height - ball.height/2
 		ball.vy = -ball.vy
+		ball.vy = ball.vy * Math.floor(Math.random() * 5)-3;
+		
 	}
-	else if (ball.y < 0 + ball.height/2)
+ if (ball.y < 0 + ball.height/2)
 	{
+		ball.y = 0 + ball.height/2
 		ball.vy = -ball.vy
+		ball.vy = ball.vy * Math.floor(Math.random() * 5) +2;
+		
+		
+		
 	}
 	//---------------------------------------------------
 	
