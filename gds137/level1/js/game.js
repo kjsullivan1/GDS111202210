@@ -12,7 +12,7 @@ var ball;
 	
 	//------Declare the Player's speed on the x and y axis------
 	ball.vx = 5;
-	ball.vy = 0;
+	ball.vy = 5;
 	//----------------------------------------------------
 	
 	timer = setInterval(animate, interval);
@@ -30,9 +30,23 @@ function animate()
 	if(ball.x > canvas.width - ball.width/2)
 	{
 		ball.vx = -ball.vx
-		ball.vx = 1 + ball.vx
+		
 	}
 
+	else if(ball.x < 0 + ball.width/2)
+	{
+		ball.vx = -ball.vx
+		
+	}
+	
+	else if (ball.y > canvas.height - ball.height/2)
+	{
+		ball.vy = -ball.vy
+	}
+	else if (ball.y < 0 + ball.height/2)
+	{
+		ball.vy = -ball.vy
+	}
 	//---------------------------------------------------
 	
 	ball.draw();
