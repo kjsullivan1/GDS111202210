@@ -92,9 +92,9 @@ function animate()
 
  if(ball.x < 0 + ball.width/2)
 	{
-		ball.x = 0 + ball.width/2
-		ball.vx = -ball.vx
-		ball.vx = ball.vx * Math.floor(Math.random() * 5)+2;
+		ball.x = canvas.width/2
+		
+		
 	
 	}
 	
