@@ -7,14 +7,16 @@ var interval = 1000/60;
 var player;
 
 
+
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");	
-	player = new GameObject();
-
 	
+	player = new GameObject();
 	player.x = 0;
 	player.width= 30;
 	player.height =150;
+
+
 	
 	//------Declare the Player's speed on the x and y axis------
 	player.vx = 0;
@@ -36,17 +38,24 @@ function animate()
 	{
 		player.y += 4
 	}
-
 	
-
+	
+	
+	
 	
 	//--------------Loop the Screen----------------------
-	if(player.x > canvas.width + player.width/2)
+	if(player.y > canvas.height - player.height/2)
 	{
-		player.x = -player.width/2	
+		player.y = canvas.height - player.height/2	
+		
 	}
-	//---------------------------------------------------
+	if(player.y < 0 + player.height/2)
+	{
+		player.y = 0 + player.height/2	
+		
+	}
 	
 	
 	player.drawRect();
+	LTblock.drawRect()
 }
