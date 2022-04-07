@@ -25,8 +25,8 @@ var player;
 	player.vx = 0;
 	player.vy = 0;
 
-	ball.vx = 3
-	ball.vy = 3
+	ball.vx = -3
+	ball.vy = 0
 	//----------------------------------------------------
 	
 	timer = setInterval(animate, interval);
@@ -37,7 +37,7 @@ function animate()
 	context.clearRect(0,0,canvas.width, canvas.height);	
 	
 	ball.move()
-	
+
 	if(w)
 	{
 		player.y += -4
@@ -49,7 +49,27 @@ function animate()
 	
 	
 	
-	
+	if(ball.hitTestObject(player))
+	{
+		ball.vx= -ball.vx +1
+
+	}
+	if(ball.hitTestObject(player))
+	{
+		if(ball.y <player.y - player.height/6)
+		{
+			ball.vx=4
+			ball.vy = -4
+		}
+	}
+	if(ball.hitTestObject(player))
+	{
+		if(ball.y>player.y)
+		{
+			ball.vx=4
+			ball.vy=4
+		}
+	}
 	
 	//--------------Loop the Screen----------------------
 	if(player.y > canvas.height - player.height/2)

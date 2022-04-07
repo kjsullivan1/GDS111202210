@@ -13,7 +13,7 @@ var ball;
 	
 	//------Declare the Player's speed on the x and y axis------
 	ball.vx = 3;
-	ball.vy = 3;
+	ball.vy = 0;
 	//----------------------------------------------------
 	
 	timer = setInterval(animate, interval);
@@ -21,10 +21,34 @@ var ball;
 
 function animate()
 {
+	ball.move();
 	context.clearRect(0,0,canvas.width, canvas.height);	
+
+	if(ball.hitTestObject(player))
+	{
+		ball.vx= -ball.vx +1
+
+	}
+	if(ball.hitTestObject(player))
+	{
+		if(ball.y <player.y - player.height/6)
+		{
+			ball.vx=4
+			ball.vy = -4
+		}
+	}
+	if(ball.hitTestObject(player))
+	{
+		if(ball.y>player.y)
+		{
+			ball.vx=4
+			ball.vy=4
+		}
+	}
+
 	
 	//----Movement Using the Player's move() function----
-	ball.move();
+	=
 	//---------------------------------------------------
 	
 	//--------------Bounce off Right----------------------
