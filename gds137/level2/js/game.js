@@ -16,11 +16,17 @@ var player;
 	player.width= 30;
 	player.height =150;
 
+	ball = new GameObject
+	ball.width = 50
+
 
 	
 	//------Declare the Player's speed on the x and y axis------
 	player.vx = 0;
 	player.vy = 0;
+
+	ball.vx = 3
+	ball.vy = 3
 	//----------------------------------------------------
 	
 	timer = setInterval(animate, interval);
@@ -29,6 +35,8 @@ var player;
 function animate()
 {
 	context.clearRect(0,0,canvas.width, canvas.height);	
+	
+	ball.move()
 	
 	if(w)
 	{
@@ -54,8 +62,43 @@ function animate()
 		player.y = 0 + player.height/2	
 		
 	}
+	if(ball.x > canvas.width - ball.width/2)
+	{
+		ball.x = canvas.width - ball.width/2
+		ball.vx = -ball.vx
+		ball.vx = ball.vx * Math.floor(Math.random() * 5)-3;
+		
+	}
+
+ if(ball.x < 0 + ball.width/2)
+	{
+		ball.x = 0 + ball.width/2
+		ball.vx = -ball.vx
+		ball.vx = ball.vx * Math.floor(Math.random() * 5)+2;
+	
+	}
+	
+ if (ball.y > canvas.height - ball.height/2)
+	{
+		ball.y = canvas.height - ball.height/2
+		ball.vy = -ball.vy
+		ball.vy = ball.vy * Math.floor(Math.random() * 5)-3;
+		
+	}
+ if (ball.y < 0 + ball.height/2)
+	{
+		ball.y = 0 + ball.height/2
+		ball.vy = -ball.vy
+		ball.vy = ball.vy * Math.floor(Math.random() * 5) +2;
+		
+		
+		
+	}
+	//---------------------------------------------------
+	
+	ball.drawCircle();
 	
 	
 	player.drawRect();
-	LTblock.drawRect()
+	
 }
