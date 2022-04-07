@@ -1,5 +1,4 @@
 // JavaScript Document
-var ball = new Ball();
 function Ball()
 {
 	//player's location

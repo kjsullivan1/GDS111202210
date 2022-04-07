@@ -10,6 +10,7 @@ var ball;
 	context = canvas.getContext("2d");	
 	ball = new Ball();
 	
+	
 	//------Declare the Player's speed on the x and y axis------
 	ball.vx = 3;
 	ball.vy = 3;

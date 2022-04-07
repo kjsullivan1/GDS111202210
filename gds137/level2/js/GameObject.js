@@ -1,5 +1,6 @@
 // JavaScript Document
 function GameObject(x,y,w,h,color)
+
 {
 	
 	//Default Values
@@ -95,4 +96,5 @@ function GameObject(x,y,w,h,color)
 		return false;
 	}
 	
+
 }
