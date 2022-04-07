@@ -12,7 +12,7 @@ var player;
 	player = new GameObject();
 
 	
-	player.x = 60
+	player.x = 0;
 	player.width= 30;
 	player.height =150;
 	
@@ -27,7 +27,18 @@ var player;
 function animate()
 {
 	context.clearRect(0,0,canvas.width, canvas.height);	
-	player.move();
+	
+	if(w)
+	{
+		player.y += -4
+	}
+	if(s)
+	{
+		player.y += 4
+	}
+
+	
+
 	
 	//--------------Loop the Screen----------------------
 	if(player.x > canvas.width + player.width/2)
