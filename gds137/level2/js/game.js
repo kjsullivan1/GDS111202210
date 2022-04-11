@@ -4,26 +4,26 @@ var canvas;
 var context;
 var timer;
 var interval = 1000/60;
-var player;
+var player1;
 
 
 
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");	
 	
-	player = new GameObject();
-	player.x = 0;
-	player.width= 30;
-	player.height =150;
+	player1 = new GameObject();
+	player1.x = 0;
+	player1.width= 30;
+	player1.height =150;
 
 	ball = new GameObject
 	ball.width = 50
 
 
 	
-	//------Declare the Player's speed on the x and y axis------
-	player.vx = 0;
-	player.vy = 0;
+	//------Declare the player1's speed on the x and y axis------
+	player1.vx = 0;
+	player1.vy = 0;
 
 	ball.vx = -3
 	ball.vy = 0
@@ -40,31 +40,31 @@ function animate()
 
 	if(w)
 	{
-		player.y += -4
+		player1.y += -4
 	}
 	if(s)
 	{
-		player.y += 4
+		player1.y += 4
 	}
 	
 	
 	
-	if(ball.hitTestObject(player))
+	if(ball.hitTestObject(player1))
 	{
 		ball.vx= -ball.vx +1
 
 	}
-	if(ball.hitTestObject(player))
+	if(ball.hitTestObject(player1))
 	{
-		if(ball.y <player.y - player.height/6)
+		if(ball.y <player1.y - player1.height/6)
 		{
 			ball.vx=4
 			ball.vy = -4
 		}
 	}
-	if(ball.hitTestObject(player))
+	if(ball.hitTestObject(player1))
 	{
-		if(ball.y>player.y)
+		if(ball.y>player1.y)
 		{
 			ball.vx=4
 			ball.vy=4
@@ -72,16 +72,17 @@ function animate()
 	}
 	
 	//--------------Loop the Screen----------------------
-	if(player.y > canvas.height - player.height/2)
+	if(player1.y > canvas.height - player1.height/2)
 	{
-		player.y = canvas.height - player.height/2	
+		player1.y = canvas.height - player1.height/2	
 		
 	}
-	if(player.y < 0 + player.height/2)
+	if(player1.y < 0 + player1.height/2)
 	{
-		player.y = 0 + player.height/2	
+		player1.y = 0 + player1.height/2	
 		
 	}
+	
 	if(ball.x > canvas.width - ball.width/2)
 	{
 		ball.x = canvas.width - ball.width/2
@@ -119,6 +120,6 @@ function animate()
 	ball.drawCircle();
 	
 	
-	player.drawRect();
+	player1.drawRect();
 	
 }
