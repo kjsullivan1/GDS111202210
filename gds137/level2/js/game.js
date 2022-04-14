@@ -6,6 +6,8 @@ var timer;
 var interval = 1000/60;
 var player1;
 var player2;
+var p1Wins = 0;
+var p2Wins = 0;
 
 
 
@@ -143,13 +145,14 @@ function animate()
 	{
 		ball.x = canvas.width/2
 		
+		p1Wins = p1Wins +1;
 	}
 
  if(ball.x < 0 + ball.width/2)
 	{
 		ball.x = canvas.width/2
 		
-		
+		p2Wins = p2Wins +1;
 	
 	}
 	
@@ -175,5 +178,7 @@ function animate()
 	
 	player2.drawRect();
 	player1.drawRect();
+
+	
 	
 }
