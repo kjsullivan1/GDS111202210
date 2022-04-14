@@ -160,14 +160,14 @@ function animate()
 	{
 		ball.y = canvas.height - ball.height/2
 		ball.vy = -ball.vy
-		ball.vy = ball.vy * Math.floor(Math.random() * 5)-3;
+		ball.vy = ball.vy * Math.floor(Math.random() * 3)-2;
 		
 	}
  if (ball.y < 0 + ball.height/2)
 	{
 		ball.y = 0 + ball.height/2
 		ball.vy = -ball.vy
-		ball.vy = ball.vy * Math.floor(Math.random() * 5) +2;
+		ball.vy = ball.vy * Math.floor(Math.random() * 3) +2;
 		
 		
 		
