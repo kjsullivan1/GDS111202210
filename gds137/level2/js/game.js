@@ -8,6 +8,7 @@ var player1;
 var player2;
 var p1Wins = 0;
 var p2Wins = 0;
+var img = document.getElementById("ric");
 
 
 
@@ -29,6 +30,7 @@ var p2Wins = 0;
 
 	ball = new GameObject()
 	ball.width = 50
+	ball.height = ball.width
 	ball.color= "black";
 
 
@@ -42,6 +44,8 @@ var p2Wins = 0;
 
 	ball.vx = -3
 	ball.vy = 0
+
+
 	//----------------------------------------------------
 	
 	timer = setInterval(animate, interval);
@@ -76,20 +80,18 @@ function animate()
 	{
 		ball.vx= -ball.vx +1
 
-	}
-	if(ball.hitTestObject(player1))
-	{
+		ball.x= player1.x + player1.width/2 + ball.width/2
+
 		if(ball.y <player1.y - player1.height/6)
 		{
-			ball.vx=4
+			
 			ball.vy = -4
+			ball.x= player1.x + player1.width/2 + ball.width/2
 		}
-	}
-	if(ball.hitTestObject(player1))
-	{
+	
 		if(ball.y>player1.y)
 		{
-			ball.vx=4
+			ball.x= player1.x + player1.width/2 + ball.width/2
 			ball.vy=4
 		}
 	}
@@ -98,21 +100,18 @@ function animate()
 	{
 		ball.vx= -ball.vx -1
 
-	}
-	if(ball.hitTestObject(player2))
-	{
+		ball.x= player2.x - player2.width/2 - ball.width/2
+	
 		if(ball.y <player2.y - player2.height/6)
 		{
 			ball.vx=-4
-			ball.vy = -4
+			ball.x= player2.x - player2.width/2 - ball.width/2
 		}
-	}
-	if(ball.hitTestObject(player2))
-	{
+
 		if(ball.y>player2.y)
 		{
 			ball.vx=-4
-			ball.vy=4
+			ball.x= player2.x - player2.width/2 - ball.width/2
 		}
 	}
 	
@@ -138,17 +137,25 @@ function animate()
 		player2.y = 0 + player2.height/2	
 		
 	}
+	//DRAW SCOREBOARD
+	context.font = "45px Times New Roman"
+	context.fillText("Player 1 | Player 2", 348,35)
 
+	context.save()
+
+	context.font = "30px Times New Roman" 
+	context.fillStyle ="black"
+	context.fillText( p1Wins.toString()+"-" + p2Wins.toString(),493,60)
+	context.restore();
 	
-	
-	if(ball.x > canvas.width - ball.width/2)
+	if(ball.x > canvas.width + ball.width/2)
 	{
 		ball.x = canvas.width/2
 		
 		p1Wins = p1Wins +1;
 	}
 
- if(ball.x < 0 + ball.width/2)
+ if(ball.x < 0 - ball.width/2)
 	{
 		ball.x = canvas.width/2
 		
@@ -172,9 +179,22 @@ function animate()
 		
 		
 	}
+
+	context.drawImage(img,ball.x - ball.width/2, ball.y - ball.height/2, ball.width, ball.height);	
+	//THE NET
+	context.save();
+	context.strokeStyle = "black"
+	context.beginPath()
+	context.moveTo(canvas.width/2,0)
+	context.lineTo(canvas.width/2,800)
+	context.closePath()
+	context.lineWidth = 2
+	context.stroke()
+	context.restore()
 	//---------------------------------------------------
 	
-	ball.drawCircle();
+	
+	
 	
 	player2.drawRect();
 	player1.drawRect();
