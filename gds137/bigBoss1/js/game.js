@@ -7,6 +7,8 @@ var ball
 var line
 var score
 
+score = 0
+
 
 canvas = document.getElementById("canvas");
 context = canvas.getContext("2d");	
