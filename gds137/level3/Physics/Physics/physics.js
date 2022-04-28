@@ -8,8 +8,9 @@ var player;
 
 //---------------Set Friction and Gravity-----------------
 var frictionX = .85;	
-var frictionY = .97;
+var frictionY = .85;
 var gravity = 1;
+
 //--------------------------------------------------------
 
 
@@ -156,40 +157,19 @@ function showPixelLock()
 
 function showBounce()
 {
-	if(d)
-	{	
-		player.vx += player.ax * player.force;
-	}
-	if(a)
-	{
-		player.vx += player.ax * -player.force;
-	}
-	if(w)
-	{	
-		player.vy += player.ay * -player.force;
-	}
-	if(s)
-	{
-		player.vy += player.ay * player.force;
-	}
-	
-	player.vy *= frictionY;
-	player.vx *= frictionX;
-	
-	player.vy += gravity;
-	
-	player.x += player.vx;
-	player.y += player.vy;
+
 	
 	//--------------------Check Collision------------------------------------------------------
-	if(player.y > canvas.height - player.height/2)
+	if(ball.y > canvas.height - ball.height/2)
 	{
 		
 		//--------Bounce the Ball---------------------------------------------------------------
-		player.y = canvas.height - player.height/2;
+		ball.y = canvas.height - ball.height/2;
 		//the decimal is how bouncy you want the object to be
 		//It should be a number between 0 and 2;
-		player.vy = -player.vy * .99;
+		ball.vy = -ball.vy * .67
+		ball.vx = 5;
+		score =0
 	}
 	
 	//-----------------------------------------------------------------------------------------
