@@ -1,6 +1,5 @@
 // JavaScript Document
 function GameObject(x,y,w,h,color)
-
 {
 	
 	//Default Values
@@ -29,6 +28,12 @@ function GameObject(x,y,w,h,color)
 		this.color = color;
 	
 	//player's velocity or speed on each axis
+	
+	this.force = 1;
+	
+	this.ax = 1;
+	this.ay = 1;
+	
 	this.vx = 0;
 	this.vy = 0;
 	
@@ -52,14 +57,12 @@ function GameObject(x,y,w,h,color)
 			context.beginPath();
 			context.translate(this.x, this.y);
 			context.arc(0, 0, this.width/2, 0, 360 *Math.PI/180, true);
-			context.arc(0, 0, this.width/2, 0, 360 *Math.PI/180, true);
 			context.closePath();
 			context.fill();
 		context.restore();
 		
 	}	
 	
-
 	//This changes the player's position
 	this.move = function()
 	{
@@ -97,5 +100,4 @@ function GameObject(x,y,w,h,color)
 		return false;
 	}
 	
-
 }

@@ -12,7 +12,7 @@ score = 0
 
 
 canvas = document.getElementById("canvas");
-context = canvas.getContext("2d");	
+context = canvas.getContext("2d")	
 var ctx = canvas.getContext("2d")  
 
 player = new GameObject()
@@ -32,7 +32,7 @@ ball.y = canvas.height/2
 ball.width = 80
 ball.height = ball.width
 ball.color = "#ff00ff"
-ball.force = 1
+ball.force = 5
 
 ball.vx = 5
 ball.vy = 0
@@ -56,26 +56,32 @@ player.vy = 0
 
 
 	context.clearRect(0,0,canvas.width, canvas.height);
+	ball.vy *=frictionY
+	ball.vx *=frictionX
 	ball.vy += gravity;
+
 	
 	ball.move()
+	showBounce()
 
 	
 	if(d)
 	{
-		player.x += player.vx;
+		
 		
 		player.vx += player.ax * player.force
-		player.vx *= frictionX;
+		
 	}
+	
 	if(a)
 	{
-		player.x += player.vx;
+		
 		
 		player.vx +=  player.ax * -player.force
-		player.vx *= frictionX;
+		
 	}
-
+	player.vx *= frictionX;
+	player.x += player.vx;
 
 	if(player.x > canvas.width - player.width/2)
 	{
@@ -110,8 +116,8 @@ player.vy = 0
 	if(ball.x < 0 + ball.width/2)
 	{
 		ball.x = 0 + ball.width/2
-		ball.vy = -ball.vx
-		ball.vx = ball.vx 
+		ball.vy = -ball.vy
+		
 		
 	}
 
@@ -121,19 +127,19 @@ player.vy = 0
 		
 		score = score + 1
 		
-		ball.vy = -15
+		ball.vy = -35
 		
 		
 		if(ball.x < player.x - player.width/3)
 		{
-			ball.y= player.y - player.height/2 - ball.height/2
+			
 			
 			ball.vx = -ball.force*5
 			
 		}
 		else if(ball.x > player.x + player.width/3)
 		{
-			ball.y= player.y - player.height/2 - ball.height/2
+			
 		
 			ball.vx = ball.force*5
 			
