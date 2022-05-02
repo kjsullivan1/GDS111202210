@@ -21,8 +21,8 @@ player.y = canvas.height - 50
 player.width = 250
 player.height = 40
 player.color = "#00ffff"
-player.ax = 1
-player.force =1.5
+player.ax = 2
+player.force = 1
 
 
 
@@ -32,7 +32,7 @@ ball.y = canvas.height/2
 ball.width = 80
 ball.height = ball.width
 ball.color = "#ff00ff"
-ball.force = 1.5
+ball.force = 1
 
 ball.vx = 5
 ball.vy = 0
@@ -120,7 +120,7 @@ player.vy = 0
 		
 		score = score + 1
 		
-		ball.vy = -35
+		ball.vy = -25
 		
 		
 		if(ball.x < player.x - player.width/3)
