@@ -1,6 +1,6 @@
-var frictionX = .90;	
+var frictionX = .98;	
 var frictionY = .97;
-var gravity = .05;
+var gravity = 1;
 
 
 

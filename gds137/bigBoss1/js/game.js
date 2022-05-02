@@ -2,7 +2,7 @@ var canvas;
 var context;
 var player
 var timer
-var interval
+var interval = 1000/60
 var ball
 var line
 var score
@@ -98,7 +98,7 @@ player.vy = 0
 	{
 		ball.y = 0 + ball.height/2
 		ball.vy = -ball.vy 
-		ball.vx = ball.vx
+		
 
 		
 		
@@ -116,7 +116,7 @@ player.vy = 0
 	if(ball.x < 0 + ball.width/2)
 	{
 		ball.x = 0 + ball.width/2
-		ball.vy = -ball.vy
+		ball.vx = -ball.vx
 		
 		
 	}
