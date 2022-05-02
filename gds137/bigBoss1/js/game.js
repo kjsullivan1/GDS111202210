@@ -21,7 +21,7 @@ player.y = canvas.height - 50
 player.width = 250
 player.height = 40
 player.color = "#00ffff"
-player.ax = 2
+player.ax = 1
 player.force = 1
 
 
@@ -57,21 +57,23 @@ player.vy = 0
 
 	context.clearRect(0,0,canvas.width, canvas.height);
 	ball.vy += gravity;
-	ball.vy *= frictionY;
+	
 	ball.move()
 
 	
 	if(d)
 	{
 		player.x += player.vx;
-		player.vx *= frictionX;
+		
 		player.vx += player.ax * player.force
+		player.vx *= frictionX;
 	}
 	if(a)
 	{
 		player.x += player.vx;
-		player.vx *= frictionX;
+		
 		player.vx +=  player.ax * -player.force
+		player.vx *= frictionX;
 	}
 
 
@@ -90,8 +92,7 @@ player.vy = 0
 	{
 		ball.y = 0 + ball.height/2
 		ball.vy = -ball.vy 
-		//ball.vy = ball.vy -23
-		//ball.vx = Math.floor(Math.random() * (6 - -6 + 1)) + -6;
+		ball.vx = ball.vx
 
 		
 		
@@ -101,7 +102,7 @@ player.vy = 0
 	if(ball.x > canvas.width -ball.width/2)
 	{
 		ball.x = canvas.width - ball.width/2
-		ball.vx = -ball.vx
+		ball.vx = -ball.vx 
 		ball.vy = ball.vy
 		
 		
@@ -110,7 +111,7 @@ player.vy = 0
 	{
 		ball.x = 0 + ball.width/2
 		ball.vy = -ball.vx
-		ball.vx = -ball.vx	
+		ball.vx = ball.vx 
 		
 	}
 
@@ -120,7 +121,7 @@ player.vy = 0
 		
 		score = score + 1
 		
-		ball.vy = -25
+		ball.vy = -15
 		
 		
 		if(ball.x < player.x - player.width/3)
