@@ -67,18 +67,12 @@ player.vy = 0
 	
 	if(d)
 	{
-		
-		
 		player.vx += player.ax * player.force
-		
 	}
 	
 	if(a)
 	{
-		
-		
-		player.vx +=  player.ax * -player.force
-		
+		player.vx +=  player.ax * -player.force	
 	}
 	player.vx *= frictionX;
 	player.x += player.vx;
@@ -156,7 +150,7 @@ player.vy = 0
 		}
 	}
 	
-	showBounce()
+	
 	
 
 
