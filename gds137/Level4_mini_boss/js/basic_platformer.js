@@ -5,15 +5,18 @@ var context;
 var timer;
 var interval;
 var player;
+var player2
 
 
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");	
 
 	player = new GameObject({x:100, y:canvas.height/2-100});
+	player2 = new GameObject({x:canvas.width-100,y:canvas.height-150})
+	
 
 	platform0 = new GameObject();
-		platform0.width = 200;
+		platform0.width = canvas.width;
 		platform0.x = platform0.width/2;
 		platform0.y = canvas.height - platform0.height/2;
 		platform0.color = "#66ff33";
@@ -55,32 +58,39 @@ function animate()
 		context.strokeStyle = "black"
 		context.beginPath()
 		context.moveTo(player.x,player.y)
-		context.lineTo(goal.x,goal.y)
+		context.lineTo(player2.x,player2.y)
 		context.closePath()
 		context.lineWidth = 2
 		context.stroke()
 		context.restore()
 
-		var	dx = player.x - goal.x;
-		var dy = player.y -goal.y
+		var	dx = player.x - player2.x;
+		var dy = player.y -player2.y
 		var dist = Math.sqrt(dx * dx + dy * dy)
 		var radians = Math.atan2(dy, dx);
 	
-		goal.vx = Math.cos(radians)*goal.force;
-		goal.vy = Math.sin(radians)*goal.force;
+		player2.vx = Math.cos(radians)*player2.force;
+		player2.vy = Math.sin(radians)*player2.force;
 
-		goal.x += goal.vx * 2;
-		goal.y += goal.vy * 2;
+		player2.x += player2.vx * 10;
+		player2.y += player2.vy * 10;
 	}
 	player.vx *= fX;
 	player.vy *= fY;
+
+	player2.vx *=fX
+	player2.vy  *=fY;
 	
 	player.vy += gravity;
+	player2.vy += gravity;
 	
 	player.x += Math.round(player.vx);
 	player.y += Math.round(player.vy);
-	
 
+	player2.x += Math.round(player.vx);
+	player2.y += Math.round(player.vy);
+	
+// PLAYER 1 COLLISIONS
 	while(platform0.hitTestPoint(player.bottom()) && player.vy >=0)
 	{
 		player.y--;
@@ -102,7 +112,40 @@ function animate()
 		player.y++;
 		player.vy = 0;
 	}
-	
+//	PLAYER2 COLLISIONS
+	while(platform0.hitTestPoint(player2.bottom()) && player2.vy >=0)
+	{
+		player2.y--;
+		player2.vy = 0;
+		player2.canJump = true;
+		player2.color = "green";
+	}
+	while(platform0.hitTestPoint(player2.left()) && player2.vx <=0)
+	{
+		player2.x++;
+		player2.vx = 0;
+	}
+	while(platform0.hitTestPoint(player2.right()) && player2.vx >=0)
+	{
+		player2.x--;
+		player2.vx = 0;
+	}
+	while(platform0.hitTestPoint(player2.top()) && player2.vy <=0)
+	{
+		player2.y++;
+		player2.vy = 0;
+	}
+
+
+//ATTACK ANIMATION
+	while(player2.hitTestPoint(player.right())&& player.vx>=0)
+	{
+		player.x--
+		player2.x=player2.x +200
+		player2.y = player2.y -10
+		player2.color = "blue"
+		space = false;
+	}
 	
 	//---------Objective: Treasure!!!!!!!---------------------------------------------------------------------------------------------------- 
 	//---------Run this program first.
@@ -123,6 +166,7 @@ function animate()
 
 	//Show hit points
 	player.drawRect();
+	player2.drawRect();
 	goal.drawCircle();
 	//LINE
 	
