@@ -6,6 +6,7 @@ var interval = 1000/60
 var ball
 var line
 var score
+var timer1
 
 var game = false
 var game2 = false
@@ -119,8 +120,13 @@ for (var i = 0; i < amount; i++)
 		
 			if(hazards[p].hitTestObject(player))
 			{
+				player.color = "red"
 				score = 0
-				
+				clearTimeout(timer1)
+				timer1 = setTimeout (function()
+				{
+					player.color = "yellow"
+				}, 500)
 				game = true
 			}
 			if(game == true)
@@ -148,6 +154,12 @@ for (var i = 0; i < amount; i++)
 			if(items[p].hitTestObject(player))
 			{
 				score = score + 1
+				player.color = "green"
+				clearTimeout(timer1)
+				timer1 = setTimeout (function()
+				{
+					player.color = "yellow"
+				}, 500)
 			}
 			if(game == true)
 			{
