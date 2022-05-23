@@ -36,7 +36,7 @@ for (var i = 0; i < amount; i++)
 {
 	hazards[i] = new GameObject();
 		hazards[i].x = Math.random() * canvas.width;
-		hazards[i].y = canvas.height - 100
+		hazards[i].y = -canvas.height - 100
 		hazards[i].vy = Math.random() * 10 + 5;
 		hazards[i].width = 20
 		hazards[i].height = hazards[i].width
@@ -46,7 +46,7 @@ for (var i = 0; i < amount; i++)
 {
 	items[i] = new GameObject();
 		items[i].x = Math.random() * canvas.width;
-		items[i].y = canvas.height - 100
+		items[i].y = -canvas.height - 100
 		items[i].vy = Math.random() * 10 + 5;
 		items[i].width = 20
 		items[i].height = 20 
@@ -99,6 +99,7 @@ for (var i = 0; i < amount; i++)
 		player.vx = 0
 	}
 
+	
 	//DRAWING 
 	for(var p = 0; p < hazards.length; p++)
 	{	
@@ -113,10 +114,15 @@ for (var i = 0; i < amount; i++)
 				hazards[p].y = -canvas.height - hazards[p].height;
 				hazards[p].vy = Math.random()*(15 - 5) + 5;
 				hazards[p].color = "red";
-				game = true
+				
 			}
 		
-		
+			if(hazards[p].hitTestObject(player))
+			{
+				score = 0
+				hazards[p].y = -canvas.height - 100;
+				game = true
+			}
 		hazards[p].drawCircle();
 	}
 
@@ -124,6 +130,7 @@ for (var i = 0; i < amount; i++)
 	{	
 		items[p].x += items[p].vx;
 		items[p].y += items[p].vy;
+		items[p].color = "green"
 			
 	
 
@@ -132,7 +139,16 @@ for (var i = 0; i < amount; i++)
 				items[p].y = -canvas.height - items[p].height;
 				items[p].vy = Math.random()*(15 - 5) + 5;
 				items[p].color = "green";
-				game2 = true 
+				
+			}
+			if(items[p].hitTestObject(player))
+			{
+				score = score + 1
+			}
+			if(game)
+			{
+				items[p].y = -canvas.height - 100
+				game = false
 			}
 		
 		
