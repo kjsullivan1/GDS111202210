@@ -120,8 +120,12 @@ for (var i = 0; i < amount; i++)
 			if(hazards[p].hitTestObject(player))
 			{
 				score = 0
-				hazards[p].y = -canvas.height - 100;
+				
 				game = true
+			}
+			if(game == true)
+			{
+				hazards[p].y = -canvas.height - 100;
 			}
 		hazards[p].drawCircle();
 	}
@@ -145,12 +149,12 @@ for (var i = 0; i < amount; i++)
 			{
 				score = score + 1
 			}
-			if(game)
+			if(game == true)
 			{
 				items[p].y = -canvas.height - 100
-				game = false
+				
 			}
-		
+				game = false
 		
 		items[p].drawRect();
 	}
