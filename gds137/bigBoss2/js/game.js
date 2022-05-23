@@ -127,12 +127,14 @@ for (var i = 0; i < amount; i++)
 				{
 					player.color = "yellow"
 				}, 500)
+				
+				for(var j = 0; j < amount; j++)
+				{
+					hazards[j].y = -canvas.height - 100
+				}
 				game = true
 			}
-			if(game == true)
-			{
-				hazards[p].y = -canvas.height - 100;
-			}
+		
 		hazards[p].drawCircle();
 	}
 
@@ -160,13 +162,14 @@ for (var i = 0; i < amount; i++)
 				{
 					player.color = "yellow"
 				}, 500)
-			}
-			if(game == true)
-			{
-				items[p].y = -canvas.height - 100
+			
 				
+				items[p].y = -canvas.height - 100
+			
 			}
-				game = false
+			
+			
+			
 		
 		items[p].drawRect();
 	}
