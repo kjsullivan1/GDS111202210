@@ -13,19 +13,10 @@ var currentState1 = "play"
 var menu = "menu"
 var howTo = "howto"
 
-var mouse={x:0,y:0, world:{x:0,y:0},pressed:false}
 
-//Tracks the mouse's position
-canvas.addEventListener(`mousemove`, (e)=>{
-   var rect = canvas.getBoundingClientRect()
-   mouse.x= e.clientX - rect.left
-   mouse.y= e.clientY - rect.top
-   //console.log(mouse.x)
-  
-})
 
-canvas.addEventListener(`mousedown`, (e)=>{mouse.pressed=true;})
-canvas.addEventListener(`mouseup`, (e)=>{mouse.pressed=false;})
+
+
 
 
 
@@ -298,13 +289,19 @@ canvas.addEventListener(`mouseup`, (e)=>{mouse.pressed=false;})
         console.log("shipSprite drawImage")
         context.restore()
 
-		if(button1.overlap(mouse))
-		{
-			
-		}
-
+		
+		
 		button1.drawRect()
 
+	}
+
+	states["howto"] = function()
+	{
+		var thowTo = new Image()
+		thowTo.src = "images/howTo-1.png"
+
+		context.drawImage(thowTo, 0,0, canvas.width, canvas.height)
+		context.restore()
 	}
 
 function animate()
