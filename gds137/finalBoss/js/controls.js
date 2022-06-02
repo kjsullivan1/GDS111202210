@@ -7,6 +7,9 @@ var f = false;
 var shift = false;
 var enter = false
 var q = false
+var one = false
+var two = false
+var back = false
 
 document.addEventListener("keydown", press);
 document.addEventListener("keyup", release);
@@ -52,6 +55,18 @@ function press(e)
 	{
 		q = true
 	}
+	if(e.keyCode == 49)
+	{
+		one = true
+	}
+	if(e.keyCode == 51)
+	{
+		back = true
+	}
+	if(e.keyCode == 50)
+	{
+		two = true
+	}
 }
 
 function release(e)
@@ -86,6 +101,18 @@ function release(e)
 	if(e.keyCode == 81)
 	{
 		q = false
+	}
+	if(e.keyCode == 49)
+	{
+		one = false
+	}
+	if(e.keyCode == 51)
+	{
+		back = false
+	}
+	if(e.keyCode == 50)
+	{
+		two = false
 	}
 	
 	

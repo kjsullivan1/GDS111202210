@@ -12,6 +12,8 @@ var states = []
 var currentState1 = "play"
 var menu = "menu"
 var howTo = "howto"
+var stateName = 0
+var currentState = menu
 
 
 
@@ -27,12 +29,12 @@ var howTo = "howto"
 	player2 = new GameObject({x:canvas.width -100,y:canvas.height-150})
 	shield = new GameObject({x:player.x+100, y:player.y})
 
-	button1 = new GameObject({x:455, y: 423})
-	button1.width = 134
-	button1.height = 57
-	button1.color = rgba(0, 120, 32, 0.38)
 	
-
+	
+	function changeStates(stateName)
+	{
+		currentState = stateName;
+	}
 	
 
 	platform0 = new GameObject();
@@ -140,6 +142,10 @@ var howTo = "howto"
 			player.y = player.y -10
 		}
 		
+		if(back)
+		{
+			changeStates("menu")
+		}
 		
 		
 	
@@ -289,9 +295,16 @@ var howTo = "howto"
         console.log("shipSprite drawImage")
         context.restore()
 
+		if(one)
+		{
+			changeStates("play")
+		}
+		if(two)
+		{
+			changeStates("howto")
+		}
 		
 		
-		button1.drawRect()
 
 	}
 
@@ -302,13 +315,18 @@ var howTo = "howto"
 
 		context.drawImage(thowTo, 0,0, canvas.width, canvas.height)
 		context.restore()
+
+		if(back)
+		{
+			changeStates("menu")
+		}
 	}
 
 function animate()
 {
 	
 	context.clearRect(0,0,canvas.width, canvas.height);	
-	states[menu]();
+	states[currentState]();
 
 }
 
